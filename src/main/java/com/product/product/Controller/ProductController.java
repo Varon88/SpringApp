@@ -31,7 +31,7 @@ public class ProductController {
 
 
     @GetMapping
-    public Optional<Product> printAllByCategory(String category){
+    public Optional<Product> printAllByCategory(@RequestParam String category){
         return productService.printByCategory(category);
     }
 

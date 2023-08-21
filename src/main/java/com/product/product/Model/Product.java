@@ -10,7 +10,7 @@ public class Product {
     private final String category;
 
 
-    public Product(@JsonProperty("name") String name, @JsonProperty("price")double price, /*@JsonProperty("id")*/int id,@JsonProperty("category") String category) {
+    public Product(@JsonProperty("name") String name, @JsonProperty("price")double price , /*@JsonProperty("id")*/int id,@JsonProperty("category") String category) {
         this.name = name;
         this.price = price;
         this.id = id;
