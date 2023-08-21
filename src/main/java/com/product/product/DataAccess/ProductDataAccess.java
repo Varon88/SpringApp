@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Repository("Main")
 public class ProductDataAccess implements ProductRepository{
@@ -25,8 +26,8 @@ public class ProductDataAccess implements ProductRepository{
     }
 
     @Override
-    public Optional<Product> printByCategory(String category) {
-        Optional<Product> items = DB.stream().filter(x -> x.getCategory().equals(category)).findFirst();
+    public List<Product> printByCategory(String category) {
+        List<Product> items = DB.stream().filter(x -> x.getCategory().equals(category)).collect(Collectors.toList());
         return items;
     }
 

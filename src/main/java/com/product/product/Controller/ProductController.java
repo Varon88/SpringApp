@@ -8,8 +8,9 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
 @RequestMapping("Controller/vx/product")
+@RestController
+
 public class ProductController {
 
     public final ProductService productService;
@@ -20,23 +21,23 @@ public class ProductController {
     }
 
     @PostMapping
-    public boolean productAddition(Product product){
+    public boolean productAddition(@RequestBody Product product){
         return productService.productAddition(product);
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Product> printAllProducts(){
         return productService.printProducts();
     }
 
 
-    @GetMapping
-    public Optional<Product> printAllByCategory(@RequestParam String category){
+    @GetMapping(path = "{category}")
+    public List<Product> printAllByCategory(@PathVariable("category")  String category){
         return productService.printByCategory(category);
     }
 
     @PutMapping(path = "{id}")
-    public  boolean editRecords(@PathVariable("id") int id, Product product){
+    public  boolean editRecords(@PathVariable("id") int id, @RequestBody Product product){
         return productService.editProduct(id,product);
     }
 }

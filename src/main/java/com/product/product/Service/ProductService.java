@@ -27,7 +27,7 @@ public class ProductService {
         return productDataAccess.getAllProducts();
     }
 
-    public Optional<Product> printByCategory(String category){
+    public List<Product> printByCategory(String category){
         return productDataAccess.printByCategory(category);
     }
 
