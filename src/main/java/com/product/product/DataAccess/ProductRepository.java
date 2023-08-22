@@ -25,5 +25,6 @@ public interface ProductRepository {
     //find a product
     Optional<Product> findProduct(int id);
 
-    boolean editRecords(int id,Product product);
+    //edit the records
+    int editRecords(int id,Product product);
 }

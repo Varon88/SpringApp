@@ -31,13 +31,19 @@ public class ProductController {
     }
 
 
-    @GetMapping(path = "{category}")
+    @GetMapping(path = "/category={category}")
     public List<Product> printAllByCategory(@PathVariable("category")  String category){
         return productService.printByCategory(category);
     }
 
+    @GetMapping(path = "/id={id}")
+    public Optional<Product> sourceProduct(@PathVariable("id") int id){
+        return productService.sourceProduct(id);
+    }
+
+
     @PutMapping(path = "{id}")
-    public  boolean editRecords(@PathVariable("id") int id, @RequestBody Product product){
+    public  int editRecords(@PathVariable("id") int id, @RequestBody Product product){
         return productService.editProduct(id,product);
     }
 }

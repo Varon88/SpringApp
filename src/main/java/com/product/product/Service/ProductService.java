@@ -31,7 +31,11 @@ public class ProductService {
         return productDataAccess.printByCategory(category);
     }
 
-    public boolean editProduct(int id, Product product){
+    public Optional<Product> sourceProduct(int id){
+        return productDataAccess.findProduct(id);
+    }
+
+    public int editProduct(int id, Product product){
         return productDataAccess.editRecords(id,product);
     }
 }
