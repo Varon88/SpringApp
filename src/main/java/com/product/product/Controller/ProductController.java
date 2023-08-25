@@ -22,18 +22,18 @@ public class ProductController {
 
     @PostMapping
     public boolean productAddition(@RequestBody Product product){
-        return productService.productAddition(product);
+        return productService.addObjects(product);
     }
 
     @GetMapping("/all")
     public List<Product> printAllProducts(){
-        return productService.printProducts();
+        return productService.getProducts();
     }
 
 
     @GetMapping(path = "/category={category}")
     public List<Product> printAllByCategory(@PathVariable("category")  String category){
-        return productService.printByCategory(category);
+        return productService.getByCategory(category);
     }
 
     @GetMapping(path = "/id={id}")
@@ -43,8 +43,8 @@ public class ProductController {
 
 
     @PutMapping(path = "{id}")
-    public  int editRecords(@PathVariable("id") int id, @RequestBody Product product){
-        return productService.editProduct(id,product);
+    public void editRecords(@PathVariable("id") int id, @RequestBody Product product){
+         productService.editProducts(id,product);
     }
 }
 
