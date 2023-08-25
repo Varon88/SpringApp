@@ -14,12 +14,5 @@ public interface ProductRepository {
     //Retrieval of all products present withing the database
     List<Product> getAllProducts();
 
-    //print product by category
 
-
-    //find a product
-//    Optional<Product> findProduct(int id);
-//
-//    //edit the records
-//    int editRecords(int id,Product product);
 }

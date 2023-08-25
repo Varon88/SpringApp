@@ -21,9 +21,7 @@ public class ProductService implements ServiceImplementation {
         this.productDataAccess = productDataAccess;
     }
 
-//    public boolean productAddition(Product product){
-//        return productDataAccess.insertProductDetails(product);
-//    }
+
     @Override
     public boolean addObjects(int id, Product product) {
         return productDataAccess.insertProductDetails(new Product(product.getName(),product.getPrice(),id,product.getCategory()));
@@ -43,9 +41,7 @@ public class ProductService implements ServiceImplementation {
     }
 
 
-//    public List<Product> printByCategory(String category){
-//        return productDataAccess.printByCategory(category);
-//  }
+
 
     @Override
     public Optional<Product> sourceProduct(int id){
